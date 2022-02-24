@@ -3,6 +3,8 @@ import os
 
 from setuptools import find_packages, setup
 
+__version__ = None
+
 with open("pytest_httpbin/version.py") as f:
     code = compile(f.read(), "pytest_httpbin/version.py", "exec")
     exec(code)
