@@ -1,7 +1,8 @@
-from setuptools import setup, find_packages
 import codecs
 import os
 import re
+
+from setuptools import find_packages, setup
 
 with open("pytest_httpbin/version.py") as f:
     code = compile(f.read(), "pytest_httpbin/version.py", 'exec')
