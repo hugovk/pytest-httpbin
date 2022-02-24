@@ -1,5 +1,3 @@
-# coding=utf8
-# -*- coding: utf8 -*-
 # vim: set fileencoding=utf8 :
 
 import os
@@ -25,12 +23,12 @@ def test_unicode_data(httpbin):
     """
     resp = requests.post(
         httpbin + '/post',
-        data=u'оживлённым'.encode('utf-8'),
+        data='оживлённым'.encode(),
         headers={
             'content-type': 'text/html; charset=utf-8',
         }
     )
-    assert resp.json()['data'] == u'оживлённым'
+    assert resp.json()['data'] == 'оживлённым'
 
 
 def test_server_should_be_http_1_1(httpbin):
@@ -68,7 +66,7 @@ def test_fixed_port_environment_variables(protocol):
         server_cls = serve.SecureServer
         envvar = 'HTTPBIN_HTTPS_PORT'
     else:
-        raise RuntimeError('Unexpected protocol param: {0}'.format(protocol))
+        raise RuntimeError(f'Unexpected protocol param: {protocol}')
 
     # just have different port to avoid adrress already in use
     # if the second test run too fast after the first one (happens on pypy)

@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 import pytest
 from httpbin import app as httpbin_app
 from . import serve, certs
